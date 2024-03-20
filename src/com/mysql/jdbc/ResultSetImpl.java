@@ -23,6 +23,7 @@
 
 package com.mysql.jdbc;
 
+import io.github.pixee.security.ObjectInputFilters;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -3418,6 +3419,7 @@ public class ResultSetImpl implements ResultSetInternalMethods {
                                     try {
                                         ByteArrayInputStream bytesIn = new ByteArrayInputStream(data);
                                         ObjectInputStream objIn = new ObjectInputStream(bytesIn);
+                                        ObjectInputFilters.enableObjectFilterIfUnprotected(objIn);
                                         obj = objIn.readObject();
                                         objIn.close();
                                         bytesIn.close();
@@ -4560,6 +4562,7 @@ public class ResultSetImpl implements ResultSetInternalMethods {
                         try {
                             ByteArrayInputStream bytesIn = new ByteArrayInputStream(data);
                             ObjectInputStream objIn = new ObjectInputStream(bytesIn);
+                            ObjectInputFilters.enableObjectFilterIfUnprotected(objIn);
                             obj = objIn.readObject();
                             objIn.close();
                             bytesIn.close();
