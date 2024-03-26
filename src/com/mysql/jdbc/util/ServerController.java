@@ -23,6 +23,7 @@
 
 package com.mysql.jdbc.util;
 
+import io.github.pixee.security.SystemCommand;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
@@ -139,7 +140,7 @@ public class ServerController {
         if (this.serverProcess != null) {
             throw new IllegalArgumentException("Server already started");
         }
-        this.serverProcess = Runtime.getRuntime().exec(getCommandLine());
+        this.serverProcess = SystemCommand.runCommand(Runtime.getRuntime(), getCommandLine());
 
         return this.serverProcess;
     }
@@ -172,7 +173,7 @@ public class ServerController {
 
             System.out.println(pathBuf.toString());
 
-            Process mysqladmin = Runtime.getRuntime().exec(pathBuf.toString());
+            Process mysqladmin = SystemCommand.runCommand(Runtime.getRuntime(), pathBuf.toString());
 
             int exitStatus = -1;
 
