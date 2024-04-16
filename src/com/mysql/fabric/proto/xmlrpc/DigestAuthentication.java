@@ -23,6 +23,8 @@
 
 package com.mysql.fabric.proto.xmlrpc;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -45,7 +47,7 @@ public class DigestAuthentication {
      * with no credentials.
      */
     public static String getChallengeHeader(String url) throws IOException {
-        HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+        HttpURLConnection conn = (HttpURLConnection) Urls.create(url, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS).openConnection();
         conn.setDoOutput(true);
         conn.getOutputStream().close();
         try {

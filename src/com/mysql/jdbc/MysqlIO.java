@@ -23,6 +23,8 @@
 
 package com.mysql.jdbc;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -3774,7 +3776,7 @@ public class MysqlIO {
                 // First look for ':'
                 if (fileName.indexOf(':') != -1) {
                     try {
-                        URL urlFromFileName = new URL(fileName);
+                        URL urlFromFileName = Urls.create(fileName, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
                         fileIn = new BufferedInputStream(urlFromFileName.openStream());
                     } catch (MalformedURLException badUrlEx) {
                         // we fall back to trying this as a file input stream

@@ -23,6 +23,8 @@
 
 package com.mysql.jdbc;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -4372,7 +4374,7 @@ public class ResultSetImpl implements ResultSetInternalMethods {
         }
 
         try {
-            return new URL(val);
+            return Urls.create(val, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
         } catch (MalformedURLException mfe) {
             throw SQLError.createSQLException(Messages.getString("ResultSet.Malformed_URL____141") + val + "'", SQLError.SQL_STATE_ILLEGAL_ARGUMENT,
                     getExceptionInterceptor());
@@ -5997,7 +5999,7 @@ public class ResultSetImpl implements ResultSetInternalMethods {
         }
 
         try {
-            return new URL(val);
+            return Urls.create(val, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
         } catch (MalformedURLException mfe) {
             throw SQLError.createSQLException(Messages.getString("ResultSet.Malformed_URL____104") + val + "'", SQLError.SQL_STATE_ILLEGAL_ARGUMENT,
                     getExceptionInterceptor());
@@ -6015,7 +6017,7 @@ public class ResultSetImpl implements ResultSetInternalMethods {
         }
 
         try {
-            return new URL(val);
+            return Urls.create(val, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
         } catch (MalformedURLException mfe) {
             throw SQLError.createSQLException(Messages.getString("ResultSet.Malformed_URL____107") + val + "'", SQLError.SQL_STATE_ILLEGAL_ARGUMENT,
                     getExceptionInterceptor());

@@ -23,6 +23,8 @@
 
 package com.mysql.jdbc;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
@@ -332,7 +334,7 @@ public class ExportControlled {
             // check URL
             if (!StringUtils.isNullOrEmpty(clientCertificateKeyStoreUrl)) {
                 try {
-                    new URL(clientCertificateKeyStoreUrl);
+                    Urls.create(clientCertificateKeyStoreUrl, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
                 } catch (MalformedURLException e) {
                     clientCertificateKeyStoreUrl = "file:" + clientCertificateKeyStoreUrl;
                 }
@@ -349,7 +351,7 @@ public class ExportControlled {
             // check URL
             if (!StringUtils.isNullOrEmpty(trustCertificateKeyStoreUrl)) {
                 try {
-                    new URL(trustCertificateKeyStoreUrl);
+                    Urls.create(trustCertificateKeyStoreUrl, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
                 } catch (MalformedURLException e) {
                     trustCertificateKeyStoreUrl = "file:" + trustCertificateKeyStoreUrl;
                 }
@@ -376,7 +378,7 @@ public class ExportControlled {
             try {
                 if (!StringUtils.isNullOrEmpty(clientCertificateKeyStoreType)) {
                     KeyStore clientKeyStore = KeyStore.getInstance(clientCertificateKeyStoreType);
-                    URL ksURL = new URL(clientCertificateKeyStoreUrl);
+                    URL ksURL = Urls.create(clientCertificateKeyStoreUrl, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
                     char[] password = (clientCertificateKeyStorePassword == null) ? new char[0] : clientCertificateKeyStorePassword.toCharArray();
                     ksIS = ksURL.openStream();
                     clientKeyStore.load(ksIS, password);
@@ -420,7 +422,7 @@ public class ExportControlled {
             KeyStore trustKeyStore = null;
 
             if (!StringUtils.isNullOrEmpty(trustCertificateKeyStoreUrl) && !StringUtils.isNullOrEmpty(trustCertificateKeyStoreType)) {
-                trustStoreIS = new URL(trustCertificateKeyStoreUrl).openStream();
+                trustStoreIS = Urls.create(trustCertificateKeyStoreUrl, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS).openStream();
                 char[] trustStorePassword = (trustCertificateKeyStorePassword == null) ? new char[0] : trustCertificateKeyStorePassword.toCharArray();
 
                 trustKeyStore = KeyStore.getInstance(trustCertificateKeyStoreType);

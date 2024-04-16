@@ -23,6 +23,8 @@
 
 package com.mysql.fabric.xmlrpc;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -52,7 +54,7 @@ public class Client {
     private Map<String, String> headers = new HashMap<String, String>();
 
     public Client(String url) throws MalformedURLException {
-        this.url = new URL(url);
+        this.url = Urls.create(url, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
     }
 
     public void setHeader(String name, String value) {
