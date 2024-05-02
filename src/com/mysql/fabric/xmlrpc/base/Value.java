@@ -115,7 +115,7 @@ public class Value {
     }
 
     public void setBoolean(String value) {
-        if (value.trim().equals("1") || value.trim().equalsIgnoreCase("true")) {
+        if ("1".equals(value.trim()) || "true".equalsIgnoreCase(value.trim())) {
             this.objValue = true;
         } else {
             this.objValue = false;

@@ -514,7 +514,7 @@ public class CallableStatement extends PreparedStatement implements java.sql.Cal
 
                             int placeholderCount = startIndex;
                             for (int i = 0; i < numParsedParameters; i++) {
-                                if (((String) parsedParameters.get(i)).equals("?")) {
+                                if ("?".equals(((String) parsedParameters.get(i)))) {
                                     this.placeholderToParameterIndexMap[placeholderCount++] = startIndex + i;
                                 }
                             }

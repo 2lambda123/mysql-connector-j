@@ -5415,8 +5415,8 @@ public class ResultSetImpl implements ResultSetInternalMethods {
                     timeAsString = timeAsString.substring(0, dec);
                 }
 
-                if (timeAsString.equals("0") || timeAsString.equals("0000-00-00") || timeAsString.equals("0000-00-00 00:00:00")
-                        || timeAsString.equals("00000000000000")) {
+                if ("0".equals(timeAsString) || "0000-00-00".equals(timeAsString) || "0000-00-00 00:00:00".equals(timeAsString)
+                        || "00000000000000".equals(timeAsString)) {
                     if (ConnectionPropertiesImpl.ZERO_DATETIME_BEHAVIOR_CONVERT_TO_NULL.equals(this.connection.getZeroDateTimeBehavior())) {
                         this.wasNullFlag = true;
 
@@ -5657,8 +5657,8 @@ public class ResultSetImpl implements ResultSetInternalMethods {
 
             boolean useGmtMillis = this.connection.getUseGmtMillisForDatetimes();
 
-            if ((length > 0) && (timestampValue.charAt(0) == '0') && (timestampValue.equals("0000-00-00") || timestampValue.equals("0000-00-00 00:00:00")
-                    || timestampValue.equals("00000000000000") || timestampValue.equals("0"))) {
+            if ((length > 0) && (timestampValue.charAt(0) == '0') && ("0000-00-00".equals(timestampValue) || "0000-00-00 00:00:00".equals(timestampValue)
+                    || "00000000000000".equals(timestampValue) || "0".equals(timestampValue))) {
 
                 if (ConnectionPropertiesImpl.ZERO_DATETIME_BEHAVIOR_CONVERT_TO_NULL.equals(this.connection.getZeroDateTimeBehavior())) {
                     this.wasNullFlag = true;

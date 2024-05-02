@@ -717,7 +717,7 @@ public class NonRegisteringDriver implements java.sql.Driver {
             }
         }
 
-        if (Util.isColdFusion() && urlProps.getProperty("autoConfigureForColdFusion", "true").equalsIgnoreCase("true")) {
+        if (Util.isColdFusion() && "true".equalsIgnoreCase(urlProps.getProperty("autoConfigureForColdFusion", "true"))) {
             String configs = urlProps.getProperty(USE_CONFIG_PROPERTY_KEY);
 
             StringBuilder newConfigs = new StringBuilder();
@@ -790,7 +790,7 @@ public class NonRegisteringDriver implements java.sql.Driver {
 
             while (propsIter.hasNext()) {
                 String key = propsIter.next().toString();
-                if (!key.equals(NUM_HOSTS_PROPERTY_KEY)) {
+                if (!NUM_HOSTS_PROPERTY_KEY.equals(key)) {
                     String property = defaults.getProperty(key);
                     urlProps.setProperty(key, property);
                 }

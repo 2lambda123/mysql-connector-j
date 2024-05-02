@@ -70,7 +70,7 @@ public class JDBC4ResultSet extends ResultSetImpl {
         checkColumnBounds(columnIndex);
 
         String fieldEncoding = this.fields[columnIndex - 1].getEncoding();
-        if (fieldEncoding == null || !fieldEncoding.equals("UTF-8")) {
+        if (fieldEncoding == null || !"UTF-8".equals(fieldEncoding)) {
             throw new SQLException("Can not call getNCharacterStream() when field's charset isn't UTF-8");
         }
         return getCharacterStream(columnIndex);
@@ -110,7 +110,7 @@ public class JDBC4ResultSet extends ResultSetImpl {
         checkColumnBounds(columnIndex);
 
         String fieldEncoding = this.fields[columnIndex - 1].getEncoding();
-        if (fieldEncoding == null || !fieldEncoding.equals("UTF-8")) {
+        if (fieldEncoding == null || !"UTF-8".equals(fieldEncoding)) {
             throw new SQLException("Can not call getNClob() when field's charset isn't UTF-8");
         }
         if (!this.isBinaryEncoded) {
@@ -208,7 +208,7 @@ public class JDBC4ResultSet extends ResultSetImpl {
         checkColumnBounds(columnIndex);
 
         String fieldEncoding = this.fields[columnIndex - 1].getEncoding();
-        if (fieldEncoding == null || !fieldEncoding.equals("UTF-8")) {
+        if (fieldEncoding == null || !"UTF-8".equals(fieldEncoding)) {
             throw new SQLException("Can not call getNString() when field's charset isn't UTF-8");
         }
         return getString(columnIndex);

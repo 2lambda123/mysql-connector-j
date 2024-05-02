@@ -316,73 +316,73 @@ public final class MysqlDefs {
      * Maps the given MySQL type to the correct JDBC type.
      */
     static int mysqlToJavaType(String mysqlType) {
-        if (mysqlType.equalsIgnoreCase("BIT")) {
+        if ("BIT".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_BIT);
-        } else if (mysqlType.equalsIgnoreCase("TINYINT")) {
+        } else if ("TINYINT".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_TINY);
-        } else if (mysqlType.equalsIgnoreCase("SMALLINT")) {
+        } else if ("SMALLINT".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_SHORT);
-        } else if (mysqlType.equalsIgnoreCase("MEDIUMINT")) {
+        } else if ("MEDIUMINT".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_INT24);
-        } else if (mysqlType.equalsIgnoreCase("INT") || mysqlType.equalsIgnoreCase("INTEGER")) {
+        } else if ("INT".equalsIgnoreCase(mysqlType) || "INTEGER".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_LONG);
-        } else if (mysqlType.equalsIgnoreCase("BIGINT")) {
+        } else if ("BIGINT".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_LONGLONG);
-        } else if (mysqlType.equalsIgnoreCase("INT24")) {
+        } else if ("INT24".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_INT24);
-        } else if (mysqlType.equalsIgnoreCase("REAL")) {
+        } else if ("REAL".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_DOUBLE);
-        } else if (mysqlType.equalsIgnoreCase("FLOAT")) {
+        } else if ("FLOAT".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_FLOAT);
-        } else if (mysqlType.equalsIgnoreCase("DECIMAL")) {
+        } else if ("DECIMAL".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_DECIMAL);
-        } else if (mysqlType.equalsIgnoreCase("NUMERIC")) {
+        } else if ("NUMERIC".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_DECIMAL);
-        } else if (mysqlType.equalsIgnoreCase("DOUBLE")) {
+        } else if ("DOUBLE".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_DOUBLE);
-        } else if (mysqlType.equalsIgnoreCase("CHAR")) {
+        } else if ("CHAR".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_STRING);
-        } else if (mysqlType.equalsIgnoreCase("VARCHAR")) {
+        } else if ("VARCHAR".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_VAR_STRING);
-        } else if (mysqlType.equalsIgnoreCase("DATE")) {
+        } else if ("DATE".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_DATE);
-        } else if (mysqlType.equalsIgnoreCase("TIME")) {
+        } else if ("TIME".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_TIME);
-        } else if (mysqlType.equalsIgnoreCase("YEAR")) {
+        } else if ("YEAR".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_YEAR);
-        } else if (mysqlType.equalsIgnoreCase("TIMESTAMP")) {
+        } else if ("TIMESTAMP".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_TIMESTAMP);
-        } else if (mysqlType.equalsIgnoreCase("DATETIME")) {
+        } else if ("DATETIME".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_DATETIME);
-        } else if (mysqlType.equalsIgnoreCase("TINYBLOB")) {
+        } else if ("TINYBLOB".equalsIgnoreCase(mysqlType)) {
             return java.sql.Types.BINARY;
-        } else if (mysqlType.equalsIgnoreCase("BLOB")) {
+        } else if ("BLOB".equalsIgnoreCase(mysqlType)) {
             return java.sql.Types.LONGVARBINARY;
-        } else if (mysqlType.equalsIgnoreCase("MEDIUMBLOB")) {
+        } else if ("MEDIUMBLOB".equalsIgnoreCase(mysqlType)) {
             return java.sql.Types.LONGVARBINARY;
-        } else if (mysqlType.equalsIgnoreCase("LONGBLOB")) {
+        } else if ("LONGBLOB".equalsIgnoreCase(mysqlType)) {
             return java.sql.Types.LONGVARBINARY;
-        } else if (mysqlType.equalsIgnoreCase("TINYTEXT")) {
+        } else if ("TINYTEXT".equalsIgnoreCase(mysqlType)) {
             return java.sql.Types.VARCHAR;
-        } else if (mysqlType.equalsIgnoreCase("TEXT")) {
+        } else if ("TEXT".equalsIgnoreCase(mysqlType)) {
             return java.sql.Types.LONGVARCHAR;
-        } else if (mysqlType.equalsIgnoreCase("MEDIUMTEXT")) {
+        } else if ("MEDIUMTEXT".equalsIgnoreCase(mysqlType)) {
             return java.sql.Types.LONGVARCHAR;
-        } else if (mysqlType.equalsIgnoreCase("LONGTEXT")) {
+        } else if ("LONGTEXT".equalsIgnoreCase(mysqlType)) {
             return java.sql.Types.LONGVARCHAR;
-        } else if (mysqlType.equalsIgnoreCase("ENUM")) {
+        } else if ("ENUM".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_ENUM);
-        } else if (mysqlType.equalsIgnoreCase("SET")) {
+        } else if ("SET".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_SET);
-        } else if (mysqlType.equalsIgnoreCase("GEOMETRY")) {
+        } else if ("GEOMETRY".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_GEOMETRY);
-        } else if (mysqlType.equalsIgnoreCase("BINARY")) {
+        } else if ("BINARY".equalsIgnoreCase(mysqlType)) {
             return Types.BINARY; // no concrete type on the wire
-        } else if (mysqlType.equalsIgnoreCase("VARBINARY")) {
+        } else if ("VARBINARY".equalsIgnoreCase(mysqlType)) {
             return Types.VARBINARY; // no concrete type on the wire
-        } else if (mysqlType.equalsIgnoreCase("BIT")) {
+        } else if ("BIT".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_BIT);
-        } else if (mysqlType.equalsIgnoreCase("JSON")) {
+        } else if ("JSON".equalsIgnoreCase(mysqlType)) {
             return mysqlToJavaType(FIELD_TYPE_JSON);
         }
 
@@ -538,8 +538,8 @@ public final class MysqlDefs {
             buf.append("' THEN ");
             buf.append(typesMap.get(mysqlTypeName));
 
-            if (mysqlTypeName.equalsIgnoreCase("DOUBLE") || mysqlTypeName.equalsIgnoreCase("FLOAT") || mysqlTypeName.equalsIgnoreCase("DECIMAL")
-                    || mysqlTypeName.equalsIgnoreCase("NUMERIC")) {
+            if ("DOUBLE".equalsIgnoreCase(mysqlTypeName) || "FLOAT".equalsIgnoreCase(mysqlTypeName) || "DECIMAL".equalsIgnoreCase(mysqlTypeName)
+                    || "NUMERIC".equalsIgnoreCase(mysqlTypeName)) {
                 buf.append(" WHEN ");
                 buf.append(mysqlTypeColumnName);
                 buf.append("='");

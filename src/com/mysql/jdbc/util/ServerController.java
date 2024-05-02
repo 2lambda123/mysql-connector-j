@@ -309,7 +309,7 @@ public class ServerController {
      * @return boolean if the property should not be a command-line argument.
      */
     private boolean isNonCommandLineArgument(String propName) {
-        return propName.equals(EXECUTABLE_NAME_KEY) || propName.equals(EXECUTABLE_PATH_KEY);
+        return EXECUTABLE_NAME_KEY.equals(propName) || EXECUTABLE_PATH_KEY.equals(propName);
     }
 
     /**

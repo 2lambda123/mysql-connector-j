@@ -491,7 +491,7 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
     protected boolean allowedOnClosedConnection(Method method) {
         String methodName = method.getName();
 
-        return methodName.equals(METHOD_GET_AUTO_COMMIT) || methodName.equals(METHOD_GET_CATALOG) || methodName.equals(METHOD_GET_TRANSACTION_ISOLATION)
-                || methodName.equals(METHOD_GET_SESSION_MAX_ROWS);
+        return METHOD_GET_AUTO_COMMIT.equals(methodName) || METHOD_GET_CATALOG.equals(methodName) || METHOD_GET_TRANSACTION_ISOLATION.equals(methodName)
+                || METHOD_GET_SESSION_MAX_ROWS.equals(methodName);
     }
 }

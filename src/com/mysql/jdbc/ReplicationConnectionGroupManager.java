@@ -60,7 +60,7 @@ public class ReplicationConnectionGroupManager {
     }
 
     public static Collection<ReplicationConnectionGroup> getGroupsMatching(String group) {
-        if (group == null || group.equals("")) {
+        if (group == null || "".equals(group)) {
             Set<ReplicationConnectionGroup> s = new HashSet<ReplicationConnectionGroup>();
 
             s.addAll(GROUP_MAP.values());

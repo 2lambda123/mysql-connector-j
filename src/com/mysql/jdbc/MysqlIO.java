@@ -3894,7 +3894,7 @@ public class MysqlIO {
                         xOpen = serverErrorMessage.substring(1, 6);
                         serverErrorMessage = serverErrorMessage.substring(6);
 
-                        if (xOpen.equals("HY000")) {
+                        if ("HY000".equals(xOpen)) {
                             xOpen = SQLError.mysqlToSqlState(errno, this.connection.getUseSqlStateCodes());
                         }
                     } else {

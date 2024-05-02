@@ -1781,7 +1781,7 @@ public class DatabaseMetaData implements java.sql.DatabaseMetaData {
                 if (declarationTok.hasMoreTokens()) {
                     String possibleParamName = declarationTok.nextToken();
 
-                    if (possibleParamName.equalsIgnoreCase("OUT")) {
+                    if ("OUT".equalsIgnoreCase(possibleParamName)) {
                         isOutParam = true;
 
                         if (declarationTok.hasMoreTokens()) {
@@ -1790,7 +1790,7 @@ public class DatabaseMetaData implements java.sql.DatabaseMetaData {
                             throw SQLError.createSQLException("Internal error when parsing callable statement metadata (missing parameter name)",
                                     SQLError.SQL_STATE_GENERAL_ERROR, getExceptionInterceptor());
                         }
-                    } else if (possibleParamName.equalsIgnoreCase("INOUT")) {
+                    } else if ("INOUT".equalsIgnoreCase(possibleParamName)) {
                         isOutParam = true;
                         isInParam = true;
 
@@ -1800,7 +1800,7 @@ public class DatabaseMetaData implements java.sql.DatabaseMetaData {
                             throw SQLError.createSQLException("Internal error when parsing callable statement metadata (missing parameter name)",
                                     SQLError.SQL_STATE_GENERAL_ERROR, getExceptionInterceptor());
                         }
-                    } else if (possibleParamName.equalsIgnoreCase("IN")) {
+                    } else if ("IN".equalsIgnoreCase(possibleParamName)) {
                         isOutParam = false;
                         isInParam = true;
 

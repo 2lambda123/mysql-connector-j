@@ -1683,7 +1683,7 @@ public class StringUtils {
             return WILD_COMPARE_NO_MATCH;
         }
 
-        if (searchFor.equals("%")) {
+        if ("%".equals(searchFor)) {
             return WILD_COMPARE_MATCH;
         }
 

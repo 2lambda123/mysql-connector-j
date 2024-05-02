@@ -305,7 +305,7 @@ public abstract class BaseTestCase extends TestCase {
 
     protected void dropSchemaObject(Statement st, String objectType, String objectName) throws SQLException {
         if (st != null) {
-            if (!objectType.equalsIgnoreCase("USER") || ((ConnectionImpl) st.getConnection()).versionMeetsMinimum(5, 7, 8)) {
+            if (!"USER".equalsIgnoreCase(objectType) || ((ConnectionImpl) st.getConnection()).versionMeetsMinimum(5, 7, 8)) {
                 st.executeUpdate("DROP " + objectType + " IF EXISTS " + objectName);
             } else {
                 st.executeUpdate("DROP " + objectType + " " + objectName);
@@ -640,7 +640,7 @@ public abstract class BaseTestCase extends TestCase {
         Class.forName(this.dbClass).newInstance();
         this.createdObjects = new ArrayList<String[]>();
 
-        if (this.dbClass.equals("gwe.sql.gweMysqlDriver")) {
+        if ("gwe.sql.gweMysqlDriver".equals(this.dbClass)) {
             try {
                 this.conn = DriverManager.getConnection(dbUrl, "", "");
                 this.sha256Conn = sha256Url == null ? null : DriverManager.getConnection(sha256Url, "", "");
@@ -1029,19 +1029,19 @@ public abstract class BaseTestCase extends TestCase {
                 continue;
             }
             String type = types[i].toString();
-            if (type.equals("short")) {
+            if ("short".equals(type)) {
                 vals[i] = new Short((short) 0);
-            } else if (type.equals("int")) {
+            } else if ("int".equals(type)) {
                 vals[i] = new Integer(0);
-            } else if (type.equals("long")) {
+            } else if ("long".equals(type)) {
                 vals[i] = new Long(0);
-            } else if (type.equals("boolean")) {
+            } else if ("boolean".equals(type)) {
                 vals[i] = new Boolean(false);
-            } else if (type.equals("byte")) {
+            } else if ("byte".equals(type)) {
                 vals[i] = new Byte((byte) 0);
-            } else if (type.equals("double")) {
+            } else if ("double".equals(type)) {
                 vals[i] = new Double(0.0);
-            } else if (type.equals("float")) {
+            } else if ("float".equals(type)) {
                 vals[i] = new Float(0.0);
             }
         }

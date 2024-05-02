@@ -244,7 +244,7 @@ public class CharsetMapping {
 
             // fill EscapeEasternUnicode charsets
             // TODO maybe needs more charsets, MS932 eg?
-            if (charsetName.equals(MYSQL_CHARSET_NAME_big5) || charsetName.equals(MYSQL_CHARSET_NAME_gbk) || charsetName.equals(MYSQL_CHARSET_NAME_sjis)) {
+            if (MYSQL_CHARSET_NAME_big5.equals(charsetName) || MYSQL_CHARSET_NAME_gbk.equals(charsetName) || MYSQL_CHARSET_NAME_sjis.equals(charsetName)) {
                 tempEscapeEncodings.addAll(charset[i].javaEncodingsUc);
             }
 
@@ -581,7 +581,7 @@ public class CharsetMapping {
             }
 
             // Filling indexes of utf8mb4 collations
-            if (charsetName.equals(MYSQL_CHARSET_NAME_utf8mb4)) {
+            if (MYSQL_CHARSET_NAME_utf8mb4.equals(charsetName)) {
                 tempUTF8MB4Indexes.add(i);
             }
         }

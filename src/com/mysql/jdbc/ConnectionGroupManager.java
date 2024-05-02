@@ -63,7 +63,7 @@ public class ConnectionGroupManager {
     }
 
     private static Collection<ConnectionGroup> getGroupsMatching(String group) {
-        if (group == null || group.equals("")) {
+        if (group == null || "".equals(group)) {
             Set<ConnectionGroup> s = new HashSet<ConnectionGroup>();
 
             s.addAll(GROUP_MAP.values());

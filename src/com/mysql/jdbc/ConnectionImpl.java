@@ -745,7 +745,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
         this.user = info.getProperty(NonRegisteringDriver.USER_PROPERTY_KEY);
         this.password = info.getProperty(NonRegisteringDriver.PASSWORD_PROPERTY_KEY);
 
-        if ((this.user == null) || this.user.equals("")) {
+        if ((this.user == null) || "".equals(this.user)) {
             this.user = "";
         }
 
@@ -1114,7 +1114,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
         synchronized (getConnectionMutex()) {
             checkClosed();
 
-            if ((userName == null) || userName.equals("")) {
+            if ((userName == null) || "".equals(userName)) {
                 userName = "";
             }
 
@@ -1970,7 +1970,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
             //
             // The Calendar class has the behavior of mapping unknown timezones to 'GMT' instead of throwing an exception, so we must check for this...
             //
-            if (!canonicalTimezone.equalsIgnoreCase("GMT") && this.serverTimezoneTZ.getID().equals("GMT")) {
+            if (!canonicalTimezone.equalsIgnoreCase("GMT") && "GMT".equals(this.serverTimezoneTZ.getID())) {
                 throw SQLError.createSQLException("No timezone mapping entry for '" + canonicalTimezone + "'", SQLError.SQL_STATE_ILLEGAL_ARGUMENT,
                         getExceptionInterceptor());
             }
@@ -4848,7 +4848,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
 
             String quotedId = this.dbmd.getIdentifierQuoteString();
 
-            if ((quotedId == null) || quotedId.equals(" ")) {
+            if ((quotedId == null) || " ".equals(quotedId)) {
                 quotedId = "";
             }
 
