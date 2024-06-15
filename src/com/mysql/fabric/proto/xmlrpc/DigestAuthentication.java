@@ -28,6 +28,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +39,7 @@ import java.util.Random;
  */
 public class DigestAuthentication {
 
-    private static Random random = new Random();
+    private static Random random = new SecureRandom();
 
     /**
      * Get the digest challenge header by connecting to the resource
