@@ -34,6 +34,7 @@ import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
+import java.security.SecureRandom;
 import java.sql.Blob;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
@@ -386,7 +387,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
                 new Object[] { hostToConnectTo, Integer.valueOf(portToConnectTo), info, databaseToConnectTo, url }, null);
     }
 
-    private static final Random random = new Random();
+    private static final Random random = new SecureRandom();
 
     /**
      * @param url
